@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, HostBinding, input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'calculator-button',
@@ -6,9 +6,20 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   imports: [
   ],
   templateUrl: './calculator-button.component.html',
+  styleUrl : './calculator-button.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host:{
     class: "w-1/4 border-r border-b border-indigo-400"
   },
 })
-export class CalculatorButtonComponent { }
+export class CalculatorButtonComponent{
+  
+  public isCommand = input(false ,{
+    transform: booleanAttribute
+  });
+
+  @HostBinding('class.is-command') get commandStyle(){
+    return this.isCommand()
+  }
+ 
+}
