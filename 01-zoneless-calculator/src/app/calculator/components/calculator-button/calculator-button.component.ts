@@ -9,9 +9,9 @@ import { booleanAttribute, ChangeDetectionStrategy, Component, ElementRef, HostB
   styleUrl : './calculator-button.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host:{
-    class: "border-r border-b border-indigo-400",
-    '[class.w-1/4]' : '!isDoubleSize()',
-    '[class.w-2/4]' : 'isDoubleSize()',
+    class: 'border-r border-b border-indigo-400',
+    '[class.w-2/4]': 'isDoubleSize()',
+    '[class.w-1/4]': '!isDoubleSize()',
   },
   // encapsulation: ViewEncapsulation.None
 })
@@ -23,13 +23,15 @@ export class CalculatorButtonComponent{
 
   public isPressed = signal(false);
   
-  public isCommand = input(false ,{
-    transform: booleanAttribute
+  public isCommand = input(false, {
+    transform: (value: boolean | string) =>
+      typeof value === 'string' ? value === '' : value,
+  });
+  public isDoubleSize = input(false, {
+    transform: (value: boolean | string) =>
+      typeof value === 'string' ? value === '' : value,
   });
 
-  public isDoubleSize = input(false, {
-    transform: booleanAttribute
-  });
 
   handleClick() {
     if (!this.contentValue()?.nativeElement) {
