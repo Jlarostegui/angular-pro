@@ -13,13 +13,20 @@ import { CalculatorButtonComponent } from '../calculator-button/calculator-butto
   //   @apply bg-indigo-700 bg-opacity-20
   // }
   // `,
+  host:{
+    '(document:keyup)': 'handleKeyboardEvent($event)'
+  }
 })
 
 export class CalculatorComponent {
 
   handleClick(key: string) {
     console.log(key);
+  }
 
+  // @HostListener('document:keyup', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    this.handleClick(event.key)
   }
 
 }
