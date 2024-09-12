@@ -47,7 +47,7 @@ export class CalculatorComponent {
     const keyEquivalents: Record<string, string> = {
       Escape: 'C',
       Clear: 'C',
-      '*': 'X',
+      'x': '*',
       '/': '÷',
       Enter: '=', 
     };
