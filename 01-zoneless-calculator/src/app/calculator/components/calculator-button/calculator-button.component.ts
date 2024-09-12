@@ -24,12 +24,10 @@ export class CalculatorButtonComponent{
   public isPressed = signal(false);
   
   public isCommand = input(false, {
-    transform: (value: boolean | string) =>
-      typeof value === 'string' ? value === '' : value,
+    transform: booleanAttribute
   });
   public isDoubleSize = input(false, {
-    transform: (value: boolean | string) =>
-      typeof value === 'string' ? value === '' : value,
+    transform: booleanAttribute
   });
 
 

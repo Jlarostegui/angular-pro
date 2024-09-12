@@ -4,7 +4,7 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root'
 })
 export class CalculatorService {
-  public resultText = signal('0');
-  public subResultText = signal('0');
+  public resultText = signal('10');
+  public subResultText = signal('20');
   public lastOperator = signal('+');
 }
