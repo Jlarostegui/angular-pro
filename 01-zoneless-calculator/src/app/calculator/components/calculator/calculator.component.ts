@@ -14,7 +14,7 @@ import { CalculatorService } from '@/calculator/services/calculator.service';
   //   @apply bg-indigo-700 bg-opacity-20
   // }
   // `,
-  host:{
+  host: {
     '(document:keyup)': 'handleKeyboardEvent($event)'
   }
 })
@@ -23,7 +23,7 @@ export class CalculatorComponent {
 
   private calculatorService = inject(CalculatorService);
 
-  public calculatorButtons =viewChildren(CalculatorButtonComponent);
+  public calculatorButtons = viewChildren(CalculatorButtonComponent);
 
   public resultText = computed(() => this.calculatorService.resultText());
   public subResultText = computed(() => this.calculatorService.subResultText());
@@ -41,15 +41,15 @@ export class CalculatorComponent {
   // @HostListener('document:keyup', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
 
-    
-    
-    
+
+
+
     const keyEquivalents: Record<string, string> = {
       Escape: 'C',
       Clear: 'C',
       'x': '*',
       '/': '÷',
-      Enter: '=', 
+      Enter: '=',
     };
     const key = event.key
     const keyValue = keyEquivalents[key] ?? key;
